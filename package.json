@@ -30,5 +30,12 @@
   "files": [
     "build/dist/vnu.jar",
     "vnu-jar.js"
-  ]
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.6.1"
+  },
+  "scripts": {
+    "test": "eslint ."
+  }
 }
