@@ -22,24 +22,34 @@ http://localhost:8888/ in a Web browser to use the checker Web UI.
 
 2. Set the `JAVA_HOME` environment variable:
 
-        export JAVA_HOME=@@/PATH/TO/JDK/ON/YOUR/SYSTEM@@
+    ```sh
+    export JAVA_HOME=@@/PATH/TO/JDK/ON/YOUR/SYSTEM@@
+    ```
 
-   For example:
+    For example:
 
-   * `export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64` (newer Ubuntu)
-   * `export JAVA_HOME=$(/usr/libexec/java_home)` (Mac OS X)
+    ```sh
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64  # newer Ubuntu
+    export JAVA_HOME=$(/usr/libexec/java_home)  # Mac OS X
+    ```
 
 3. Create a working directory:
 
-        git clone https://github.com/validator/validator.git
+```sh
+git clone https://github.com/validator/validator.git
+```
 
 4. Change into your working directory:
 
-        cd validator
+```sh
+cd validator
+```
 
 5. Start the build script:
 
-        python ./build/build.py all
+```sh
+python ./build/build.py all
+```
 
 The steps above will build, test, and run the checker such that you can open
 http://localhost:8888/ in a Web browser to use the checker Web UI.
@@ -58,7 +68,7 @@ the code to get started, here’s a brief annotated overview of the repository c
 
 * `build` - scripts for building, testing, and running the checker
 * `css-validator` - (submodule) CSS validator source code
-* `docs` - (submodule) https://github.com/validator/validator/wiki sources
+* `docs` - (submodule) <https://github.com/validator/validator/wiki> sources
 * `galimatias` - (submodule) URL parser
 * `htmlparser` - (submodule) HTML parser
 * `jing-trang` - (submodule) RelaxNG engine
@@ -85,7 +95,7 @@ the code to get started, here’s a brief annotated overview of the repository c
 
 ## Grant of license
 
-Please read the https://github.com/validator/validator/blob/master/DCO file.
+Please read the <https://github.com/validator/validator/blob/master/DCO> file.
 
 By contributing to this project, you agree to license your contributions under
 [the MIT license](https://github.com/validator/validator/blob/master/LICENSE)
@@ -93,22 +103,28 @@ and to waive any requirement to include an additional copyright notice.
 
 When contributing pull requests, please add a "Signed-off-by" line to your
 git commit messages to indicate that you have read all of the content of
-https://github.com/validator/validator/blob/master/DCO and that you certify
+<https://github.com/validator/validator/blob/master/DCO> and that you certify
 your code contributions actually conform to the terms of that agreement.
 
 To add a "Signed-off-by" line, invoke `git commit` with the `-s` option:
 
-    git commit -s
+```
+git commit -s
+```
 
 To save yourself some time, you probably want to set `user.name` and `user.email`
 values in a git config file (e.g., in `~/.gitconfig`), like this:
 
-    [user]
-       name = Zaphod Beeblebrox
-       email = zaphodb@example.com
+```
+[user]
+   name = Zaphod Beeblebrox
+   email = zaphodb@example.com
+```
 
 Running `git commit -s` will then add a "Signed-off-by" line in this form:
 
-    Signed-off-by: Zaphod Beeblebrox <zaphodb@example.com>
+```
+Signed-off-by: Zaphod Beeblebrox <zaphodb@example.com>
+```
 
 (Of course you need to instead use your own real name and e-mail address.)
