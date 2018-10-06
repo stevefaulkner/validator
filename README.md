@@ -71,75 +71,75 @@ checking with a frontend such as:
 Use the `vnu.jar` checker as an executable for command-line checking of
 documents by invoking it like this:
 
-      java -jar ~/vnu.jar [--errors-only] [--Werror] [--exit-zero-always]
-           [--asciiquotes] [--user-agent USER_AGENT] [--no-langdetect]
-           [--no-stream] [--filterfile FILENAME] [--filterpattern PATTERN]
-           [--css] [--skip-non-css] [--also-check-css] [--svg] [--skip-non-svg]
-           [--also-check-svg] [--html] [--skip-non-html] [--format
-           gnu|xml|json|text] [--help] [--verbose] [--version] FILES
+    java -jar ~/vnu.jar [--errors-only] [--Werror] [--exit-zero-always]
+         [--asciiquotes] [--user-agent USER_AGENT] [--no-langdetect]
+         [--no-stream] [--filterfile FILENAME] [--filterpattern PATTERN]
+         [--css] [--skip-non-css] [--also-check-css] [--svg] [--skip-non-svg]
+         [--also-check-svg] [--html] [--skip-non-html] [--format
+         gnu|xml|json|text] [--help] [--verbose] [--version] FILES
 
 **Note:** In these instructions, replace _"~/vnu.jar"_ with the actual path to
 the file on your system.
 
 To check one or more documents from the command line:
 
-      java -jar ~/vnu.jar FILE.html FILE2.html FILE3.HTML FILE4.html...
+    java -jar ~/vnu.jar FILE.html FILE2.html FILE3.HTML FILE4.html...
 
 **Note:** If you get a `StackOverflowError` error when using the vnu.jar file,
 try adjusting the thread stack size by providing the `-Xss` option to java:
 
-      java -Xss512k -jar ~/vnu.jar FILE.html...
+    java -Xss512k -jar ~/vnu.jar FILE.html...
 
 To check all documents in a particular directory as HTML:
 
-      java -jar ~/vnu.jar some-directory-name/
+    java -jar ~/vnu.jar some-directory-name/
 
 To check all documents in a particular directory as HTML, but skip any documents
 whose names don’t end with the extensions `.html`, `.htm`, `.xhtml`, or `.xht`:
 
-      java -jar ~/vnu.jar --skip-non-html some-directory-name/
+    java -jar ~/vnu.jar --skip-non-html some-directory-name/
 
 To check all documents in a particular directory as CSS:
 
-      java -jar ~/vnu.jar --force-css some-directory-name/
+    java -jar ~/vnu.jar --force-css some-directory-name/
 
 To check all documents in a particular directory as CSS, but skip any documents
 whose names don’t end with the extension `.css`:
 
-      java -jar ~/vnu.jar --skip-non-css some-directory-name/
+    java -jar ~/vnu.jar --skip-non-css some-directory-name/
 
 To check all documents in a particular directory, with documents whose names end
 in the extension `.css` being checked as CSS, and all other documents being
 checked as HTML:
 
-      java -jar ~/vnu.jar --also-check-css some-directory-name/
+    java -jar ~/vnu.jar --also-check-css some-directory-name/
 
 To check all documents in a particular directory as SVG:
 
-      java -jar ~/vnu.jar --force-svg some-directory-name/
+    java -jar ~/vnu.jar --force-svg some-directory-name/
 
 To check all documents in a particular directory as SVG, but skip any documents
 whose names don’t end with the extension `.svg`:
 
-      java -jar ~/vnu.jar --skip-non-svg some-directory-name/
+    java -jar ~/vnu.jar --skip-non-svg some-directory-name/
 
 To check all documents in a particular directory, with documents whose names end
 in the extension `.svg` being checked as SVG, and all other documents being
 checked as HTML:
 
-      java -jar ~/vnu.jar --also-check-svg some-directory-name/
+    java -jar ~/vnu.jar --also-check-svg some-directory-name/
 
 To check a Web document:
 
-      java -jar ~/vnu.jar _URL_
+    java -jar ~/vnu.jar _URL_
 
-      example: java -jar ~/vnu.jar http://example.com/foo
+    example: java -jar ~/vnu.jar http://example.com/foo
 
 To check standard input:
 
-      java -jar ~/vnu.jar -
+    java -jar ~/vnu.jar -
 
-      example: echo '<!doctype html><title>...' | java -jar ~/vnu.jar -
+    example: echo '<!doctype html><title>...' | java -jar ~/vnu.jar -
 
 ### Options
 
@@ -327,7 +327,7 @@ those files on your system.
 To run the checker as a standalone service (using a built-in Jetty server), open
 a new terminal window and invoke `vnu.jar` like this:
 
-        java -cp ~/vnu.jar nu.validator.servlet.Main 8888
+    java -cp ~/vnu.jar nu.validator.servlet.Main 8888
 
 Then open [http://localhost:8888][33] in a browser. (To have the checker listen
 on a different port, replace `8888` with the port number.)
@@ -343,7 +343,7 @@ the browser.
 **Note:** If you get a `StackOverflowError` error when using the vnu.jar file,
 try adjusting the thread stack size by providing the `-Xss` option to java:
 
-      java -Xss512k -cp ~/vnu.jar nu.validator.servlet.Main 8888
+    java -Xss512k -cp ~/vnu.jar nu.validator.servlet.Main 8888
 
 ### Deployment to servlet container
 
@@ -396,7 +396,7 @@ To check documents locally, do this:
 
   2. Open a new terminal window and invoke `vnu.jar` like this:
 
-        java -cp ~/vnu.jar nu.validator.client.HttpClient FILE.html...
+    java -cp ~/vnu.jar nu.validator.client.HttpClient FILE.html...
 
 To send documents to an instance of the checker on the Web, such as
 [html5.validator.nu/][37], use the nu.validator.client.host and
@@ -404,9 +404,9 @@ nu.validator.client.port options, like this:
 
    [37]: https://html5.validator.nu/
 
-        java -cp ~/vnu.jar -Dnu.validator.client.port=80 \
-         -Dnu.validator.client.host=html5.validator.nu \
-         nu.validator.client.HttpClient FILE.html...
+    java -cp ~/vnu.jar -Dnu.validator.client.port=80 \
+     -Dnu.validator.client.host=html5.validator.nu \
+     nu.validator.client.HttpClient FILE.html...
 
 Other options are documented below.
 
@@ -420,8 +420,8 @@ For example, you can suppress warning-level messages and only show error-level
 ones by setting the value of the `nu.validator.client.level` system property to
 `error`, like this:
 
-       java -Dnu.validator.client.level=error\
-           -cp ~/vnu.jar nu.validator.client.HttpClient FILE.html...
+    java -Dnu.validator.client.level=error\
+        -cp ~/vnu.jar nu.validator.client.HttpClient FILE.html...
 
 Most of the properties listed below map to the validator.nu common input
 parameters documented at
@@ -527,32 +527,32 @@ You can pull the checker from the
 
 To pull and run the latest version of the checker:
 
-      docker run -it --rm -p 8888:8888 validator/validator:latest
+    docker run -it --rm -p 8888:8888 validator/validator:latest
 
 To pull and run a specific Docker-Hub tag/version of the checker — for example,
 the `17.11.1` version:
 
-      docker run -it --rm -p 8888:8888 validator/validator:17.11.1
+    docker run -it --rm -p 8888:8888 validator/validator:17.11.1
 
 To run the checker with a connection timeout and socket timeout different than
 the default 5 seconds, use the `CONNECTION_TIMEOUT_SECONDS` and
 `SOCKET_TIMEOUT_SECONDS` environment variables:
 
-      docker run -it --rm \
-         -e CONNECTION_TIMEOUT_SECONDS=15 \
-         -e SOCKET_TIMEOUT_SECONDS=15 \
-         -p 8888:8888 \
-         validator/validator
+    docker run -it --rm \
+       -e CONNECTION_TIMEOUT_SECONDS=15 \
+       -e SOCKET_TIMEOUT_SECONDS=15 \
+       -p 8888:8888 \
+       validator/validator
 
 To define a service named `vnu` for use with `docker compose`, create a Compose
 file named `docker-compose.yml` (for example), with contents such as the
 following:
 
-      version: '2' services:
-        vnu:
-          image: validator/validator ports:
-            - "8888:8888"
-          network_mode: "host" #so "localhost" refers to the host machine.
+    version: '2' services:
+      vnu:
+        image: validator/validator ports:
+          - "8888:8888"
+        network_mode: "host" #so "localhost" refers to the host machine.
 
 ## Build instructions
 
@@ -563,21 +563,21 @@ open `http://localhost:8888/` in a Web browser to use the checker Web UI.
 
   2. Set the `JAVA_HOME` environment variable:
 
-        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64    <-- Ubuntu, etc.
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64    <-- Ubuntu, etc.
 
-        export JAVA_HOME=$(/usr/libexec/java_home)            <-- MacOS
+    export JAVA_HOME=$(/usr/libexec/java_home)            <-- MacOS
 
-  3. Create a working directory:
+3. Create a working directory:
 
-        git clone https://github.com/validator/validator.git
+    git clone https://github.com/validator/validator.git
 
-  4. Change into your working directory:
+4. Change into your working directory:
 
-        cd validator
+    cd validator
 
-  5. Start the build script:
+5. Start the build script:
 
-        python ./build/build.py all
+    python ./build/build.py all
 
 The first time you run the build script, you’ll need to be online and the build
 will need time to download several megabytes of dependencies.
