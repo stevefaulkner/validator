@@ -1,10 +1,14 @@
 dist: trusty
 sudo: false
 language: java
+
 git:
   depth: 5
   submodules: false # we do this ourselves later with `build.py update`
 
+os:
+  - linux
+  - windows
 matrix:
   include:
     - jdk: oraclejdk8
